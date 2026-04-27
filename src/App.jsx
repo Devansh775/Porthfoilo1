@@ -1,31 +1,27 @@
-import React from 'react'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import About from './Pages/About';
+import Home from './Pages/Home';
+import Navbar from './Navbar';
+import Todo from './TODO/Todo';
+import Currency from './Currency/Curency';
 
-import { Routes, Route } from 'react-router-dom'
-import About from './Pages/About'
-import Home from './Pages/Home'
-import Navbar from './Navbar'
-import Rigth from './Pages/Rigth'
-import Todo from './TODO/Todo'
 export const App = () => {
   return (
-    <div className="w-full flex flex-col min-h-screen">
-      {/* Navbar rendered once outside Routes so it persists across pages */}
-      <div className="mt-4">
-        <Navbar />
-      </div>
-      
+    <div className="w-full flex flex-col min-h-screen bg-[#050505] text-slate-50 font-sans selection:bg-blue-500/30">
+      <Navbar />
       
       {/* Page Content */}
-      <div className="flex-1 mt-8 px-4">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/currency" element={<Currency />} />
         </Routes>
-      </div>
-
+      </main>
     </div>
-  )
-}
-export default App
+  );
+};
 
+export default App;
